@@ -3,17 +3,19 @@ import { TouchableOpacity, StyleSheet, Text, TextInput, View } from 'react-nativ
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Purple school</Text>
-      <View style={styles.formContainer}>
-        <TextInput style={styles.input} placeholder='Email' placeholderTextColor="rgba(175, 178, 191, 1)"/>
-        <TextInput style={styles.input} placeholder='Пароль' secureTextEntry={true} placeholderTextColor="rgba(175, 178, 191, 1)"/>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Войти</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>Purple school</Text>
+        <View style={styles.formContainer}>
+          <TextInput style={styles.input} placeholder='Email' placeholderTextColor="rgba(175, 178, 191, 1)"/>
+          <TextInput style={styles.input} placeholder='Пароль' secureTextEntry={true} placeholderTextColor="rgba(175, 178, 191, 1)"/>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Войти</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.linkText}>Восстановить пароль</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity>
-        <Text style={styles.linkText}>Восстановить пароль</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -22,9 +24,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(22, 23, 29, 1)',
-    alignItems: 'center',
     justifyContent: 'center',
     padding: 55,
+  },
+  content: {
+    alignItems: 'center',
     gap: 50,
   },
   title: {
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   formContainer: {
-    width: '100%',
+    alignSelf: 'stretch',
     gap: 16,
   },
   input: {
