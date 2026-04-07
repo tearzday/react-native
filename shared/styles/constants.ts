@@ -5,6 +5,8 @@ export const COLORS = {
     PLACEHOLDER: 'rgba(175, 178, 191, 1)',
     TEXT: 'white',
     LINK: 'rgba(169, 123, 255, 1)',
+    ERROR: 'red',
+    SUCCESS: 'green'
 }
 
 export const ROUNDED = {
