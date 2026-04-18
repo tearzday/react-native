@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Alert, Button, Input } from './shared/ui';
-import { COLORS, ROUNDED } from './shared/styles';
+import { Alert, Button, Input } from '../shared/ui';
+import { COLORS, ROUNDED } from '../shared/styles';
 import { useState } from 'react';
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
       <Alert text={error}/>
       <View style={styles.container}>
         <View style={styles.content}>
-          <Image style={styles.logo} source={require('./assets/logo.png')} />
+          <Image style={styles.logo} source={require('../assets/logo.png')} />
           <View style={styles.formContainer}>
             <Input style={styles.input} placeholder='Email'/>
             <Input style={styles.input} placeholder='Пароль' isPassword={true} placeholderTextColor="rgba(175, 178, 191, 1)"/>
