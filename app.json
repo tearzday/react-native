@@ -12,6 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "backgroundColor": "#0f172a",
     "ios": {
       "supportsTablet": true
     },
