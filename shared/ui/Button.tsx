@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { COLORS, ROUNDED } from '../styles';
+import { AppText } from './AppText';
 
 interface ButtonProps {
     title: string;
@@ -9,7 +10,7 @@ interface ButtonProps {
 export function Button({ title, onPress }: ButtonProps) {
     return (
         <Pressable style={styles.button} onPress={onPress}>
-            <Text style={styles.buttonText}>{title}</Text>
+            <AppText style={styles.buttonText}>{title}</AppText>
         </Pressable>
     );
 }

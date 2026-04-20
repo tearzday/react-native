@@ -1,8 +1,9 @@
 import { Slot, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { COLORS } from "../shared/styles";
+import { FONTS } from "../shared/styles/constants";
 
 export default function Layout() {
   return (

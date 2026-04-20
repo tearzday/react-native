@@ -14,3 +14,8 @@ export const ROUNDED = {
     MEDIUM: 10,
     LARGE: 20,
 }
+
+export const FONTS = {
+  regular: "FiraSans-Regular",
+  bold: "FiraSans-SemiBold",
+}

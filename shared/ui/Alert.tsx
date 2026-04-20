@@ -1,6 +1,7 @@
-import {Animated, StyleSheet ,Text, View} from 'react-native'
+import {Animated, StyleSheet} from 'react-native'
 import { COLORS } from '../styles'
 import { useEffect } from 'react';
+import { AppText } from './AppText';
 
 interface AlertProps {
     text?: string,
@@ -32,7 +33,7 @@ export function Alert({text, type = 'error'}: AlertProps) {
   
   return (
     <Animated.View style={[styles.alert, styles[type], { transform: [{ translateY: animatedValue }] }]}>
-        <Text style={styles.text}>{text}</Text>
+        <AppText style={styles.text}>{text}</AppText>
     </Animated.View>
   )
 }

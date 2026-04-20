@@ -1,11 +1,11 @@
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { AppText } from '../shared/ui';
 
 export default function RestorePassword() {
   return (
     <SafeAreaView>
-      <Text>restore-password</Text>
+      <AppText>restore-password</AppText>
       <Link href="/">Назад</Link>
     </SafeAreaView>
   )
