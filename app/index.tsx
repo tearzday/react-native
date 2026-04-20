@@ -1,8 +1,7 @@
 import { Image, StyleSheet, View } from 'react-native';
-import { Alert, Button, Input } from '../shared/ui';
+import { Alert, Button, Input, LinkApp } from '../shared/ui';
 import { COLORS, ROUNDED } from '../shared/styles';
 import { useState } from 'react';
-import { Link, } from 'expo-router';
 
 export default function App() {
   const [error, setError] = useState<string | undefined>();
@@ -28,7 +27,7 @@ export default function App() {
             <Input style={styles.input} placeholder='Пароль' isPassword={true} placeholderTextColor="rgba(175, 178, 191, 1)"/>
             <Button title="Войти" onPress={handleLogin} />
           </View>
-          <Link href="/restore-password" style={styles.linkText}>Восстановить пароль</Link>
+          <LinkApp href="/restore-password1" style={styles.linkText}>Восстановить пароль</LinkApp>
         </View>
       </View>
     </>
