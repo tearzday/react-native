@@ -1,16 +1,18 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native';
 import { COLORS, ROUNDED } from '../styles';
 import { AppText } from './AppText';
 
 interface ButtonProps {
     title: string;
     onPress: () => void;
+    isLoading?: boolean;
 }
 
-export function Button({ title, onPress }: ButtonProps) {
+export function Button({ title, onPress, isLoading }: ButtonProps) {
     return (
-        <Pressable style={styles.button} onPress={onPress}>
-            <AppText style={styles.buttonText}>{title}</AppText>
+        <Pressable style={styles.button} onPress={onPress} disabled={isLoading}>
+            {isLoading ? <ActivityIndicator size={22} color={COLORS.TEXT} /> 
+            : <AppText style={styles.buttonText}>{title}</AppText>}
         </Pressable>
     );
 }

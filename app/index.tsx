@@ -1,80 +1,24 @@
-import { Image, StyleSheet, View } from 'react-native';
-import { Alert, Button, Input, LinkApp } from '../shared/ui';
-import { COLORS, ROUNDED } from '../shared/styles';
-import { useState } from 'react';
+import { Text } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button } from "../shared/ui";
+import { useUserStore } from "../entities";
+import { Redirect } from "expo-router";
 
-export default function App() {
-  const [error, setError] = useState<string | undefined>();
 
-  const handleLogin = () => {
-    if(!error) {
-      setError('Неверный логин или пароль');
-    
-      setTimeout(() => {
-        setError(undefined)
-      }, 4000)
+export default function App () {
+    const logout = useUserStore((state) => state.logout)
+    const token = useUserStore((state) => state.token)
+
+      if(!token) {
+        return <Redirect href="/login" />
+      }
+
+    const handleLogout = () => {
+        logout()
     }
-  }
 
-  return (
-    <>
-      <Alert text={error}/>
-      <View style={styles.container}>
-        <View style={styles.content}>
-          <Image style={styles.logo} source={require('../assets/logo.png')} />
-          <View style={styles.formContainer}>
-            <Input style={styles.input} placeholder='Email'/>
-            <Input style={styles.input} placeholder='Пароль' isPassword={true} placeholderTextColor="rgba(175, 178, 191, 1)"/>
-            <Button title="Войти" onPress={handleLogin} />
-          </View>
-          <LinkApp href="/restore-password1" style={styles.linkText}>Восстановить пароль</LinkApp>
-        </View>
-      </View>
-    </>
-  );
+    return <SafeAreaView>
+        <Text>{token}</Text>
+        <Button title="Выйти" onPress={handleLogout} />
+    </SafeAreaView>
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.BACKGROUND,
-    justifyContent: 'center',
-    padding: 55,
-  },
-  content: {
-    alignItems: 'center',
-    gap: 50,
-  },
-  logo: {
-    width: 160,
-    resizeMode: 'contain',
-    
-  },
-  formContainer: {
-    alignSelf: 'stretch',
-    gap: 16,
-  },
-  input: {
-    backgroundColor: COLORS.INPUT_BACKGROUND,
-    height: 58,
-    borderRadius: ROUNDED.MEDIUM,
-    paddingHorizontal: 26,
-    color: COLORS.TEXT,
-    fontSize: 16
-  },
-  button: {
-    backgroundColor: COLORS.ACCENT,
-    padding: 16,
-    borderRadius: ROUNDED.MEDIUM,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: COLORS.TEXT,
-    fontWeight: 'bold',
-    fontSize: 18
-  },
-  linkText: {
-    color: COLORS.LINK,
-    fontSize: 18
-  }
-});
